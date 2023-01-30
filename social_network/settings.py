@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'api_app',
+    'mini_game',
     # 'celery',
     'drf_yasg'
 ]
@@ -90,7 +91,8 @@ REST_FRAMEWORK = {
 
 MIDDLEWARE = sys_conf.MIDDLEWARE
 
-ROOT_URLCONF = 'api_app.urls'
+# ROOT_URLCONF = 'api_app.urls'
+ROOT_URLCONF = 'mini_game.urls'
 
 TEMPLATES = [
     {

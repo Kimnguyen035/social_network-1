@@ -15,12 +15,23 @@ DEFAULT_THROTTLE_CLASSES = [
 
 TEMPLATES_DIRS = []
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql', 
+#         'NAME': 'social_network',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'social_network',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mini_game',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': '0000',
         'HOST': 'localhost',
         'PORT': '3306',
     }
