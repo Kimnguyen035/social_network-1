@@ -20,4 +20,5 @@ GROUP_URL = {
     'url_swagger',
     'url_auth',
     'url_test',
+    # 'number_of_plays',
 }
