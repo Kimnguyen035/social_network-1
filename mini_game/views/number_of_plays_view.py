@@ -11,7 +11,7 @@ class NumberOfPlaysView(ViewSet):
     def get_detail(self, request, id):
         validate = IdGetNumberOfPlaysValidate(data={'id':id})
         if not validate.is_valid():
-            return validate_error(validate.errors)
+            return validate_error(validate.errors,STATUS['NO_DATA'])
         detail = NumberOfPlays.objects.get(id=validate.data['id'])
         if detail is None:
             return response_data(
@@ -26,11 +26,49 @@ class NumberOfPlaysView(ViewSet):
     
     def post(self, request):
         data = request.data.copy()
-        post_save = NumberOfPlaysSerializer(data=data)
-        if not post_save.is_valid():
-            return validate_error(post_save.errors)
-        post_save.save()
+        data_save = NumberOfPlaysSerializer(data=data)
+        if not data_save.is_valid():
+            return validate_error(data_save.errors)
+        data_save.save()
         return response_data(
             message=SUCCESS['post_number_of_plays'],
-            data=post_save.data
+            data=data_save.data
         )
+        
+    def put(self, request, id):
+        data = request.data.copy()
+        validate = IdGetNumberOfPlaysValidate(data={'id':id})
+        if not validate.is_valid():
+            return validate_error(validate.errors,STATUS['NO_DATA'])
+        detail = NumberOfPlays.objects.get(id=validate.data['id'])
+        data_save = NumberOfPlaysSerializer(detail,data=data,partial=True)
+        if not data_save.is_valid():
+            return validate_error(data_save.errors)
+        data_save.save()
+        return response_data(
+            message=SUCCESS['put_number_of_plays'],
+            data=data_save.data
+        )
+        
+    def delete(self, request, id):
+        validate = IdGetNumberOfPlaysValidate(data={'id':id})
+        if not validate.is_valid():
+            return validate_error(validate.errors,STATUS['NO_DATA'])
+        detail = NumberOfPlays.objects.get(id=validate.data['id'])
+        detail.soft_delete()
+        return response_data(SUCCESS['delete_number_of_plays'])
+    
+    def restore(self, request, id):
+        validate = IdGetNumberOfPlaysValidate(data={'id':id})
+        if not validate.is_valid():
+            return validate_error(validate.errors,STATUS['NO_DATA'])
+        detail = NumberOfPlays.objects.get(id=validate.data['id'])
+        detail.restore()
+        return response_data(SUCCESS['restore_number_of_plays'])
+    
+    def drop(self, request, id):
+        validate = IdGetNumberOfPlaysValidate(data={'id':id})
+        if not validate.is_valid():
+            return validate_error(validate.errors,STATUS['NO_DATA'])
+        NumberOfPlays.objects.get(id=validate.data['id']).delete()
+        return response_data(SUCCESS['drop_number_of_plays'])

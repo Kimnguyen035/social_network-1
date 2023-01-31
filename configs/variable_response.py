@@ -23,5 +23,9 @@ ERROR = {
 SUCCESS = {
     'login':'Login success.',
     'refresh_token':'Refresh success.',
-    'post_number_of_plays': 'post is success.'
+    'post_number_of_plays': 'post is success.',
+    'put_number_of_plays': 'put is success.',
+    'delete_number_of_plays': 'delete is success.',
+    'restore_number_of_plays': 'restore is success.',
+    'drop_number_of_plays': 'drop is success.',
 }

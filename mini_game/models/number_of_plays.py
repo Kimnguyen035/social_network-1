@@ -1,8 +1,9 @@
-from django.db import models
+# from django.db import models
 from .user import User
 from .game import Game
+from .soft_delete import *
 
-class NumberOfPlays(models.Model):
+class NumberOfPlays(SoftDeleteModel):
     class Meta:
         db_table = 'number_of_plays'
     id = models.BigAutoField(primary_key=True)
