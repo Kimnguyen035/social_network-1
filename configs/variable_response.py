@@ -28,4 +28,9 @@ SUCCESS = {
     'delete_number_of_plays': 'delete is success.',
     'restore_number_of_plays': 'restore is success.',
     'drop_number_of_plays': 'drop is success.',
+    'post_game': 'post is success.',
+    'put_game': 'put is success.',
+    'delete_game': 'delete is success.',
+    'restore_game': 'restore is success.',
+    'drop_game': 'drop is success.',
 }

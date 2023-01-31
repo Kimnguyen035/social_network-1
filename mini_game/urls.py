@@ -14,7 +14,13 @@ all_url = {
         path('drop-number-of-play/<int:id>', NumberOfPlaysView.as_view({'delete':'drop'}), name='drop'),
     ],
     'game': [
-        path('getall', GameView.as_view({'get':'getall'}), name='getall'),
+        path('getall-game', GameView.as_view({'get':'getall'}), name='getall'),
+        path('get-detail-game/<int:id>', GameView.as_view({'get':'get_detail'}), name='getall'),
+        path('post-game', GameView.as_view({'post':'post'}), name='post'),
+        path('put-game/<int:id>', GameView.as_view({'put':'put'}), name='put'),
+        path('delete-game/<int:id>', GameView.as_view({'delete':'delete'}), name='delete'),
+        path('restore-game/<int:id>', GameView.as_view({'delete':'restore'}), name='restore'),
+        path('drop-game/<int:id>', GameView.as_view({'delete':'drop'}), name='drop'),
     ],
     'url_auth':[
         path('login', AuthView.as_view({'post':'login'}), name='login'),
