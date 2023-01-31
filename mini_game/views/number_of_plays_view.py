@@ -29,4 +29,8 @@ class NumberOfPlaysView(ViewSet):
         post_save = NumberOfPlaysSerializer(data=data)
         if not post_save.is_valid():
             return validate_error(post_save.errors)
-        return response_data(message=SUCCESS['post_number_of_plays'], data=post_save.data)
+        post_save.save()
+        return response_data(
+            message=SUCCESS['post_number_of_plays'],
+            data=post_save.data
+        )
