@@ -1,6 +1,6 @@
-from django.db import models
+from .soft_delete import *
 
-class Game(models.Model):
+class Game(SoftDeleteModel):
     class Meta:
         db_table = 'game'
     id = models.BigAutoField(primary_key=True)

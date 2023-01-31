@@ -1,16 +1,20 @@
 from django.urls import path
 from .views.number_of_plays_view import *
 from .views.auth_views import *
+from .views.game_view import *
 
 all_url = {
     'number_of_plays': [
-        path('getall', NumberOfPlaysView.as_view({'get':'getall'}), name='getall'),
-        path('get-detail/<int:id>', NumberOfPlaysView.as_view({'get':'get_detail'}), name='getall'),
+        path('getall-number-of-play', NumberOfPlaysView.as_view({'get':'getall'}), name='getall'),
+        path('get-detail-number-of-play/<int:id>', NumberOfPlaysView.as_view({'get':'get_detail'}), name='getall'),
         path('post-number-of-play', NumberOfPlaysView.as_view({'post':'post'}), name='post'),
         path('put-number-of-play/<int:id>', NumberOfPlaysView.as_view({'put':'put'}), name='put'),
         path('delete-number-of-play/<int:id>', NumberOfPlaysView.as_view({'delete':'delete'}), name='delete'),
         path('restore-number-of-play/<int:id>', NumberOfPlaysView.as_view({'delete':'restore'}), name='restore'),
         path('drop-number-of-play/<int:id>', NumberOfPlaysView.as_view({'delete':'drop'}), name='drop'),
+    ],
+    'game': [
+        path('getall', GameView.as_view({'get':'getall'}), name='getall'),
     ],
     'url_auth':[
         path('login', AuthView.as_view({'post':'login'}), name='login'),
