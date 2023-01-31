@@ -56,7 +56,7 @@ class NumberOfPlaysView(ViewSet):
             return validate_error(validate.errors,STATUS['NO_DATA'])
         detail = NumberOfPlays.objects.get(id=validate.data['id'])
         detail.soft_delete()
-        return response_data(SUCCESS['delete_number_of_plays'])
+        return response_data(message=SUCCESS['delete_number_of_plays'])
     
     def restore(self, request, id):
         validate = IdGetNumberOfPlaysValidate(data={'id':id})
@@ -64,11 +64,11 @@ class NumberOfPlaysView(ViewSet):
             return validate_error(validate.errors,STATUS['NO_DATA'])
         detail = NumberOfPlays.objects.get(id=validate.data['id'])
         detail.restore()
-        return response_data(SUCCESS['restore_number_of_plays'])
+        return response_data(message=SUCCESS['restore_number_of_plays'])
     
     def drop(self, request, id):
         validate = IdGetNumberOfPlaysValidate(data={'id':id})
         if not validate.is_valid():
             return validate_error(validate.errors,STATUS['NO_DATA'])
         NumberOfPlays.objects.get(id=validate.data['id']).delete()
-        return response_data(SUCCESS['drop_number_of_plays'])
+        return response_data(message=SUCCESS['drop_number_of_plays'])
