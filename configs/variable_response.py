@@ -10,16 +10,18 @@ STATUS = {
 
 ERROR = {
     'wrong_password': 'Wrong password.',
-    'not_exists': ' is not exists.',
-    'exists': ' is exists',
+    'not_exists': 'is not exists.',
+    'exists': 'is exists',
     'refresh_token':'refresh_token is not exists.',
     'not_login':'Not logged in, token is null.',
     'token_not_exists':'Token is not exists.',
     'access_token':'Token fails, you can refresh token.',
-    'dulicate_locked_user': ' is the same as the locked user name.'
+    'dulicate_locked_user': ' is the same as the locked user name.',
+    'id_not_exists': 'Id is not exists.',
 }
 
 SUCCESS = {
     'login':'Login success.',
     'refresh_token':'Refresh success.',
+    'post_number_of_plays': 'post is success.'
 }
