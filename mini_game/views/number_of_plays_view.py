@@ -20,8 +20,7 @@ class NumberOfPlaysView(ViewSet):
             )
         result = NumberOfPlaysSerializer(detail)
         return response_data(
-            message=SUCCESS['post_number_of_plays'],
-            data=result.data
+            result.data
         )
     
     def post(self, request):
