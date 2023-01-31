@@ -1,4 +1,3 @@
-# from django.db import models
 from .user import User
 from .game import Game
 from .soft_delete import *
